@@ -9,6 +9,7 @@ django-extensions = "*"
 ipython = "*"
 "psycopg2-binary" = "*"
 awsebcli = "*"
+"boto3" = "*"
 
 [dev-packages]
 

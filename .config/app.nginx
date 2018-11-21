@@ -1,0 +1,28 @@
+server {
+    return 404;
+}
+
+server {
+    listen 80;
+    listen 443;
+
+    server_name *.elasticbeanstalk.com;
+    charset utf-8;
+    client_max_body_size 128M;
+
+    location / {
+        uwsgi_pass unix:///tmp/app.sock;
+        include    uwsgi_params;
+    }
+
+    location /static/ {
+        alias /srv/project/.static/;
+    }
+    location /media/ {
+        alias /srv/project/.media/;
+    }
+
+    if ($http_x_forwarded_proto = 'http') {
+        return 301 https://$host$request_uri;
+    }
+}
