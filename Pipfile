@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-extensions = "*"
+ipython = "*"
+"psycopg2-binary" = "*"
+awsebcli = "*"
 
 [dev-packages]
 

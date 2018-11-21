@@ -6,6 +6,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DEFAULT_FILE_STORAGE = 'config.storages.MediaStorage'
 
+DATABASES = secrets['DATABASES']
 
 ALLOWED_HOSTS = secrets['ALLOWED_HOSTS']
 
