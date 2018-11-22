@@ -5,13 +5,16 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-extensions = "*"
-ipython = "*"
 "psycopg2-binary" = "*"
-awsebcli = "*"
 "boto3" = "*"
+django-storages = "*"
+pillow = "*"
 
 [dev-packages]
+ipython = "*"
+awsebcli = "*"
+"boto3" = "*"
+django-extensions = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
