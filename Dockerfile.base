@@ -1,15 +1,16 @@
 FROM            python:3.6.7-slim
 MAINTAINER      wps9thmango@gmail.com
-
 ENV             LANG    C.UTF-8
 
 
 RUN             apt -y update
 RUN             apt -y dist-upgrade
 RUN             apt -y install gcc nginx supervisor && \
-                pip3 install uwsgi && \
+                pip3 install uwsgi pipenv && \
                 apt -y remove gcc && \
                 apt -y autoremove
 
-COPY            requirements.txt /tmp/requirements.txt
-RUN             pip3 install -r /tmp/requirements.txt
+COPY            Pipfile /tmp/Pipfile
+COPY            Pipfile.lock /tmp/Pipfile.lock
+WORKDIR         /tmp/
+RUN             pipenv install --system --ignore-pipfile

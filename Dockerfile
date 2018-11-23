@@ -24,4 +24,3 @@ RUN             cp -f  /srv/project/.config/supervisord.conf \
 EXPOSE          80
 
 CMD             supervisord -n
-
