@@ -11,4 +11,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         username = f'dummy_{get_random_string(length=10)}'
         User.objects.create_user(username=username)
-        print(f'User {username} created')
+        self.stdout.write(f'User {username} created')
