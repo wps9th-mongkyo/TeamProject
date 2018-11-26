@@ -51,3 +51,4 @@ class Follow(models.Model):
         related_query_name='to_user_relation',
     )
     follow_date = models.DateTimeField(auto_now_add=True)
+
