@@ -6,7 +6,7 @@ class Restaurant(models.Model):
     name = models.CharField('가게이름',max_length=50)
     address = models.CharField('주소',max_length=100)
     address_detail = models.CharField('상세주소',max_length=100, unique=True)
-    phone_num = models.PositiveIntegerField('전화번호', max_length=13)
+    phone_num = models.PositiveIntegerField('전화번호')
     food_type = models.CharField('음식 종류', max_length=20, blank=True)
     price_level = models.CharField('가격대', max_length=50, blank=True)
     parking = models.CharField('주차', max_length=20, blank=True)
@@ -23,9 +23,9 @@ class Restaurant(models.Model):
         verbose_name = '가고싶다',
     )
 
-    view_num = models.PositiveIntegerField('뷰수', max_length=8, default=0)
-    review_num = models.PositiveIntegerField('리뷰수', max_length=4, default=0)
-    want_num = models.PositiveIntegerField('가고싶다수', max_length=4, default=0)
+    view_num = models.PositiveIntegerField('뷰수', default=0)
+    review_num = models.PositiveIntegerField('리뷰수', default=0)
+    want_num = models.PositiveIntegerField('가고싶다수', default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)

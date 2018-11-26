@@ -2,7 +2,7 @@ from .base import *
 
 secrets = json.load(open(os.path.join(SECRET_ROOT, 'dev.json')))
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.dev.application'
 
 DATABASES = secrets['DATABASES']
 

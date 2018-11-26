@@ -1,14 +1,17 @@
 from .base import *
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 secrets = json.load(open(os.path.join(SECRET_ROOT, 'production.json')))
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.production.application'
 
 DATABASES = secrets['DATABASES']
 
 ALLOWED_HOSTS = secrets['ALLOWED_HOSTS']
 
-DEFAULT_FILE_STORAGE = 'config.storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'config.storages.MediaStor/age'
 
 AWS_ACCESS_KEY_ID = secrets['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = secrets['AWS_SECRET_ACCESS_KEY']
@@ -22,6 +25,11 @@ DEBUG = True
 LOG_DIR = os.path.join(ROOT_DIR, '.log')
 if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR, exist_ok=True)
+
+sentry_sdk.init(
+    dsn=secrets['SENTRY_DSN'],
+    integrations=[DjangoIntegration()]
+)
 
 
 LOGGING = {

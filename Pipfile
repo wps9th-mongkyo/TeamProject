@@ -9,6 +9,7 @@ django = "*"
 "boto3" = "*"
 django-storages = "*"
 pillow = "*"
+sentry-sdk = "*"
 
 [dev-packages]
 ipython = "*"

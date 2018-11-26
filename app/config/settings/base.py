@@ -38,6 +38,14 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.amazonaws.com'
+]
+
+
+
 
 # AUTH_USER_MODEL
 AUTH_USER_MODEL = 'members.User'

@@ -1,8 +1,4 @@
 server {
-    return 404;
-}
-
-server {
     listen 80;
 
     server_name localhost 127.0.0.1 *.elasticbeanstalk.com;
