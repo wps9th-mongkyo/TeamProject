@@ -6,7 +6,8 @@ from .models import Restaurant
 class ResSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
-        field = (
+        fields = (
+            'pk',
             'name',
             'address',
             'address_detail',
@@ -24,5 +25,4 @@ class ResSerializer(serializers.ModelSerializer):
             'want_num',
             'created_at',
             'modified_at',
-            'gps_location',
         )

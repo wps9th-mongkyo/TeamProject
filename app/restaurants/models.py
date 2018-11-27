@@ -30,8 +30,8 @@ class Restaurant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
-    latitude = models.FloatField('위도')
-    longitude = models.FloatField('경도')
+    latitude = models.FloatField('위도', blank=True)
+    longitude = models.FloatField('경도', blank=True)
 
 class Menu(models.Model):
     name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')

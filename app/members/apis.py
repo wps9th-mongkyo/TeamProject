@@ -8,10 +8,7 @@ User = get_user_model()
 
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer()
-
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+    serializer_class = UserSerializer
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):

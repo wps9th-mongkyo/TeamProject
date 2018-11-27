@@ -8,6 +8,7 @@ class ResList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.all()
     serializer_class = ResSerializer
 
+
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurant.objects.all()
     serializer_class = ResSerializer
