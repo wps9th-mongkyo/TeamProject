@@ -6,7 +6,7 @@ class Restaurant(models.Model):
     name = models.CharField('가게이름',max_length=50)
     address = models.CharField('주소',max_length=100)
     address_detail = models.CharField('상세주소',max_length=100, unique=True)
-    phone_num = models.CharField('전화번호', max_length=12)
+    phone_num = models.CharField('전화번호', max_length=20)
     food_type = models.CharField('음식 종류', max_length=20, blank=True)
     price_level = models.CharField('가격대', max_length=50, blank=True)
     parking = models.CharField('주차', max_length=20, blank=True)
@@ -30,8 +30,8 @@ class Restaurant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
-    gps_location = models.CharField('GPS', max_length=50, blank=True)
-
+    latitude = models.FloatField('위도')
+    longitude = models.FloatField('경도')
 
 class Menu(models.Model):
     name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')
