@@ -52,4 +52,4 @@ class Wannago(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    created_date = models.DateField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
