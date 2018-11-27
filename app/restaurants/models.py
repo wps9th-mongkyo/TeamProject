@@ -32,13 +32,16 @@ class Restaurant(models.Model):
 
     gps_location = models.CharField('GPS', max_length=50, blank=True)
 
+
 class Menu(models.Model):
     name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')
     menu_text = models.TextField('메뉴텍스트', blank=True)
 
+
 class MenuImages(models.Model):
     post = models.ForeignKey(Menu, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
     image = models.ImageField(upload_to='menu', verbose_name='메뉴이미지', blank=True)
+
 
 class Wannago(models.Model):
     Restaurant = models.ForeignKey(
