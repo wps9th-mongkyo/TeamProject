@@ -11,6 +11,9 @@ django-storages = "*"
 pillow = "*"
 sentry-sdk = "*"
 djangorestframework = "*"
+"urllib3" = "*"
+chardet = "*"
+requests = "*"
 
 [dev-packages]
 ipython = "*"
