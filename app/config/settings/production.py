@@ -9,7 +9,12 @@ WSGI_APPLICATION = 'config.wsgi.production.application'
 
 DATABASES = secrets['DATABASES']
 
-ALLOWED_HOSTS = secrets['ALLOWED_HOSTS']
+ALLOWED_HOSTS = [
+'.elasticbeanstalk.com',
+'fastplate.xyz',
+'www.fastplate.xyz',
+'api.fastplate.xyz'
+]
 
 DEFAULT_FILE_STORAGE = 'config.storages.MediaStor/age'
 
