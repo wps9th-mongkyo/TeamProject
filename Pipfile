@@ -10,6 +10,7 @@ django = "*"
 django-storages = "*"
 pillow = "*"
 sentry-sdk = "*"
+djangorestframework = "*"
 
 [dev-packages]
 ipython = "*"
