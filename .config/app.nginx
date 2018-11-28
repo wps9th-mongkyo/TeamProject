@@ -3,6 +3,7 @@ server {
 }
 server {
     listen 80;
+    listen 443;
 
     server_name fastplate.xyz www.fastplate.xyz api.fastplate.xyz *.elasticbeanstalk.com;
     charset utf-8;

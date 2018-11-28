@@ -1,5 +1,16 @@
-# Created by https://www.gitignore.io/api/git,linux,macos,python,django,windows
-# Edit at https://www.gitignore.io/?templates=git,linux,macos,python,django,windows
+# Created by https://www.gitignore.io/api/git,linux,macos,python,django,windows, jupyternotebook
+# Edit at https://www.gitignore.io/?templates=git,linux,macos,python,django,windows,jupyternotebook
+
+### JupyterNotebook ###
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Remove previous ipynb_checkpoints
+#   git rm -r .ipynb_checkpoints/
+#
+
+# End of https://www.gitignore.io/api/jupyternotebook
+
 
 # Secrets
 .secrets

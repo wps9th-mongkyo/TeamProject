@@ -20,6 +20,12 @@ ipython = "*"
 awsebcli = "*"
 "boto3" = "*"
 django-extensions = "*"
+jupyter = "*"
+notebook = "*"
+selenium = "*"
+"beautifulsoup4" = "*"
+lxml = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.6"
