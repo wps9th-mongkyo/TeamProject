@@ -24,7 +24,7 @@ AWS_STORAGE_BUCKET_NAME = secrets['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_S3_REGION_NAME = 'ap-northeast-2'
 
-DEBUG = True
+DEBUG = False
 
 # 로그폴더 생성
 LOG_DIR = os.path.join(ROOT_DIR, '.log')
