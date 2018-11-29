@@ -33,6 +33,10 @@ class Restaurant(models.Model):
     latitude = models.FloatField('위도', blank=True)
     longitude = models.FloatField('경도', blank=True)
 
+    def __str__(self):
+        return self.name
+
+
 class Menu(models.Model):
     name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')
     menu_text = models.TextField('메뉴텍스트', blank=True)

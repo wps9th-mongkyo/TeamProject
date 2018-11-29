@@ -21,6 +21,9 @@ server {
         alias /srv/project/.media/;
     }
 
+    if ($http_x_forwarded_proto = 'http') {
+        return 301 https://$host$request_uri;
+    }
 }
 
 

@@ -16,7 +16,7 @@ ALLOWED_HOSTS = [
 'api.fastplate.xyz'
 ]
 
-DEFAULT_FILE_STORAGE = 'config.storages.MediaStor/age'
+DEFAULT_FILE_STORAGE = 'config.storages.MediaStorage'
 
 AWS_ACCESS_KEY_ID = secrets['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = secrets['AWS_SECRET_ACCESS_KEY']
