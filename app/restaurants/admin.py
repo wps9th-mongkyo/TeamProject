@@ -5,3 +5,4 @@ from .models import Restaurant
 
 
 admin.site.register(Restaurant)
+

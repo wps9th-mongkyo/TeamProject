@@ -1,6 +1,31 @@
 from rest_framework import serializers
 
-from .models import Restaurant
+from .models import Restaurant, Menu, MenuImage
+
+
+class MenuImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MenuImage
+        fields = (
+            'post'
+            'image'
+        )
+
+
+class MenuSerializer(serializers.ModelSerializer):
+    menuimage = MenuImageSerializer
+
+    class Meta:
+        model = Menu
+        fields = (
+            'name'
+            'menu_text'
+            'menuimage'
+        )
+        read_only_fields = (
+            'menuimage'
+        )
 
 
 class ResSerializer(serializers.ModelSerializer):
@@ -20,6 +45,7 @@ class ResSerializer(serializers.ModelSerializer):
             'last_order',
             'holiday',
             'website',
+            'youtube',
             'view_num',
             'review_num',
             'want_num',

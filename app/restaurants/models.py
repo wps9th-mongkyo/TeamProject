@@ -15,6 +15,7 @@ class Restaurant(models.Model):
     last_order = models.CharField('마지막주문', max_length=20, blank=True)
     holiday = models.CharField('휴일', max_length=20, blank=True)
     website = models.URLField('사이트', max_length=150, blank=True)
+    youtube = models.CharField('유튜브', max_length=255, blank=True)
 
     want_togo = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
@@ -42,7 +43,7 @@ class Menu(models.Model):
     menu_text = models.TextField('메뉴텍스트', blank=True)
 
 
-class MenuImages(models.Model):
+class MenuImage(models.Model):
     post = models.ForeignKey(Menu, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
     image = models.ImageField(upload_to='menu', verbose_name='메뉴이미지', blank=True)
 

@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns_api = ([
     path('restaurants/', include('restaurants.urls')),
     path('members/', include('members.urls')),
+    path('posts/', include('posts.urls')),
 ], 'api')
 
 
