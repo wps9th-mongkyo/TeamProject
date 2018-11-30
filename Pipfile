@@ -14,6 +14,7 @@ djangorestframework = "*"
 "urllib3" = "*"
 chardet = "*"
 requests = "*"
+pipfile = "*"
 
 [dev-packages]
 ipython = "*"
@@ -26,6 +27,7 @@ selenium = "*"
 "beautifulsoup4" = "*"
 lxml = "*"
 django-debug-toolbar = "*"
+pipfile = "*"
 
 [requires]
 python_version = "3.6"
