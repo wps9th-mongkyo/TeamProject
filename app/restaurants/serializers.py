@@ -25,4 +25,6 @@ class ResSerializer(serializers.ModelSerializer):
             'want_num',
             'created_at',
             'modified_at',
+            'latitude',
+            'longitude',
         )
