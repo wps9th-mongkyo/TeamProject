@@ -5,8 +5,6 @@ from django.db import models
 from restaurants.models import Restaurant
 
 
-
-
 class Post(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,

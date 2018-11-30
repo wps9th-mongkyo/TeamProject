@@ -33,3 +33,4 @@ class PostSerializer(serializers.ModelSerializer):
             'restaurant',
             'postimage',
         )
+
