@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "01642862ca748b8b8d53ff4709b60665f7f3c8c9e9412e09cdece8a9a76eb9ee"
+            "sha256": "1daa432a5b53f787a5c2b8e64911a4b4545a733689a4b068c8a0dfb6107aa940"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -233,6 +233,14 @@
         }
     },
     "develop": {
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
+        },
         "awsebcli": {
             "hashes": [
                 "sha256:b2dff9efbd83979b8050a95803eb88b0902660d926eae31e3a0bfe0836c2d318"
@@ -412,6 +420,13 @@
                 "sha256:684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
             ],
             "version": "==2.7"
+        },
+        "ipdb": {
+            "hashes": [
+                "sha256:7081c65ed7bfe7737f83fa4213ca8afd9617b42ff6b3f1daf9a3419839a2a00a"
+            ],
+            "index": "pypi",
+            "version": "==0.11"
         },
         "ipykernel": {
             "hashes": [

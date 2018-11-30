@@ -9,10 +9,11 @@ class PostImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostImage
         fields = (
-            'pk'
-            'post'
-            'image'
+            'pk',
+            'post',
+            'image',
         )
+
 
 class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer()

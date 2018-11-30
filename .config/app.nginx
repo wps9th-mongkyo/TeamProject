@@ -1,8 +1,6 @@
 server {
-    return 404;
-}
-server {
     listen 80;
+    listen 8000;
     listen 443;
 
     server_name fastplate.xyz www.fastplate.xyz api.fastplate.xyz *.elasticbeanstalk.com;
@@ -25,5 +23,4 @@ server {
         return 301 https://$host$request_uri;
     }
 }
-
 

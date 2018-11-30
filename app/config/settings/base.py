@@ -17,32 +17,26 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 ROOT_DIR = os.path.dirname(BASE_DIR)
 SECRET_ROOT = os.path.join(ROOT_DIR, '.secrets')
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(ROOT_DIR, '.static')
-
+# Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secrets = json.load(open(os.path.join(SECRET_ROOT, 'base.json')))
+base_secrets = json.load(open(os.path.join(SECRET_ROOT, 'base.json')))
 
-SECRET_KEY = secrets['SECRET_KEY']
+SECRET_KEY = base_secrets['SECRET_KEY']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+# static
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(ROOT_DIR, '.static')
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.amazonaws.com'
-]
+# SECURITY WARNING: don't run with debug turned on in production!
 
 
 # Django_rest_framework

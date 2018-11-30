@@ -34,7 +34,10 @@ urlpatterns += static(
     prefix=settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT,
 )
-
+urlpatterns += static(
+    prefix=settings.STATIC_URL,
+    document_root=settings.STATIC_ROOT
+)
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [

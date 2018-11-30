@@ -12,7 +12,6 @@ class PostList(generics.ListCreateAPIView):
     #     .select_related('author', 'restaurant', 'postimage') \
 
 
-
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

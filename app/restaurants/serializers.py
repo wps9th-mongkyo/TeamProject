@@ -54,3 +54,4 @@ class ResSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
         )
+

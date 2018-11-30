@@ -5,6 +5,10 @@ COPY            ./      /srv/project
 WORKDIR         /srv/project
 
 
+WORKDIR         /srv/project/app
+RUN             python3 manage.py collectstatic --noinput
+
+
 
 WORKDIR         /srv/project/app
 

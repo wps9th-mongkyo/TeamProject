@@ -28,6 +28,7 @@ selenium = "*"
 lxml = "*"
 django-debug-toolbar = "*"
 pipfile = "*"
+ipdb = "*"
 
 [requires]
 python_version = "3.6"
