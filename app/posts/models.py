@@ -17,6 +17,11 @@ class Post(models.Model):
         on_delete = models.CASCADE,
         verbose_name='음식점',
     )
+    post_image= models.ForeignKey(
+        'PostImage',
+        on_delete=models.CASCADE,
+        verbose_name='포스트사진',
+    )
     context = models.TextField('리뷰텍스트')
 
     rate = models.IntegerField(
