@@ -15,6 +15,7 @@ djangorestframework = "*"
 chardet = "*"
 requests = "*"
 pipfile = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 ipython = "*"
