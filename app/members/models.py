@@ -34,7 +34,7 @@ class User(AbstractUser):
         """
         if self.img_profile.url:
             return self.img_profile.url
-        return static('images/blank_user.png')
+        return static('images/dummy-user.jpg')
 
 
 class Follow(models.Model):
