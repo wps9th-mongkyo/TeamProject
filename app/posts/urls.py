@@ -5,6 +5,6 @@ from . import apis
 app_name = 'posts'
 
 urlpatterns = [
-    path('', apis.PostList.as_view()),
-    path('<int:pk>/', apis.PostDetail.as_view()),
+    path('list/', apis.PostList.as_view()),
+    path('list/<int:pk>/', apis.PostDetail.as_view()),
 ]

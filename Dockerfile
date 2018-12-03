@@ -5,14 +5,6 @@ COPY            ./      /srv/project
 WORKDIR         /srv/project
 
 
-WORKDIR         /srv/project/app
-RUN             python3 manage.py collectstatic --noinput
-
-
-
-WORKDIR         /srv/project/app
-
-
 RUN             rm -rf /etc/nginx/sites-available/* && \
                 rm -rf /etc/nginx/sites-enabled/* && \
                 cp -f  /srv/project/.config/app.nginx \
