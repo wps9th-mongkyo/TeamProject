@@ -137,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # django-cors-headers
 CORS_ORIGIN_WHITELIST = (
-    'localhost',
+    'localhost:3000',
     'www.fastplate.xyz',
     'fastplate.xyz',
     'api.fastplate.xyz',
