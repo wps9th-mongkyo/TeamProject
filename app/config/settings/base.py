@@ -143,6 +143,9 @@ CORS_ORIGIN_WHITELIST = (
     'api.fastplate.xyz',
 )
 
+# CORS 리소스 요청 옵션
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
