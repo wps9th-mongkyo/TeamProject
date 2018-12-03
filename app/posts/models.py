@@ -12,7 +12,7 @@ class Post(models.Model):
         verbose_name='작성자',
     )
 
-    Restaurant = models.ForeignKey(
+    restaurant = models.ForeignKey(
         Restaurant,
         on_delete = models.CASCADE,
         verbose_name='음식점',

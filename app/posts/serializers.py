@@ -18,7 +18,8 @@ class PostImgSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer()
     restaurant = ResSerializer()
-    postimage = PostImgSerializer()
+    postimage = PostImgSerializer(many=True)
+
     class Meta:
         model = Post
         fields = (
@@ -32,6 +33,4 @@ class PostSerializer(serializers.ModelSerializer):
         read_only_fields = (
             'author',
             'restaurant',
-            'postimage',
         )
-
