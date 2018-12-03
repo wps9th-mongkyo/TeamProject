@@ -19,7 +19,7 @@ class Post(models.Model):
     )
     context = models.TextField('리뷰텍스트')
 
-    rate = models.PositiveIntegerField(
+    rate = models.IntegerField(
         '음식점평가',
         default=3,
         validators=[
