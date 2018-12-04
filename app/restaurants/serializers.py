@@ -15,7 +15,6 @@ class MenuImageSerializer(serializers.ModelSerializer):
 
 class MenuSerializer(serializers.ModelSerializer):
     menuimage = MenuImageSerializer
-
     class Meta:
         model = Menu
         fields = (
@@ -29,6 +28,7 @@ class MenuSerializer(serializers.ModelSerializer):
 
 
 class ResSerializer(serializers.ModelSerializer):
+    menu = MenuSerializer
     class Meta:
         model = Restaurant
         fields = (
