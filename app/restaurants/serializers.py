@@ -4,17 +4,16 @@ from .models import Restaurant, MenuImage
 
 
 class MenuImageSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = MenuImage
         fields = (
-            'post'
-            'image'
+            'pk',
+            'image',
         )
 
 
 class ResSerializer(serializers.ModelSerializer):
-    menuimage = MenuImageSerializer
+    menuimage_res = MenuImageSerializer(many=True, read_only=True)
     class Meta:
         model = Restaurant
         fields = (
@@ -40,10 +39,10 @@ class ResSerializer(serializers.ModelSerializer):
             'latitude',
             'longitude',
             'menu_text',
-            'menuimage',
+            'menuimage_res',
         )
         read_only_fields = (
-            'menuimage',
+            'menuimage_res',
         )
 
 
