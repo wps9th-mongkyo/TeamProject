@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Restaurant, Menu, MenuImage
+from .models import Restaurant, MenuImage
 
 
 class MenuImageSerializer(serializers.ModelSerializer):
@@ -13,23 +13,8 @@ class MenuImageSerializer(serializers.ModelSerializer):
         )
 
 
-class MenuSerializer(serializers.ModelSerializer):
-    menuimage = MenuImageSerializer
-    class Meta:
-        model = Menu
-        fields = (
-            'name'
-            'menu_text'
-            'menuimage'
-        )
-        read_only_fields = (
-            'menuimage'
-        )
-
-
-
 class ResSerializer(serializers.ModelSerializer):
-    menu = MenuSerializer
+    menuimage = MenuImageSerializer
     class Meta:
         model = Restaurant
         fields = (
@@ -54,5 +39,11 @@ class ResSerializer(serializers.ModelSerializer):
             'modified_at',
             'latitude',
             'longitude',
+            'menu_text',
+            'menuimage',
         )
+        read_only_fields = (
+            'menuimage',
+        )
+
 

@@ -5,8 +5,7 @@ from .models import Restaurant
 
 class ResList(generics.ListCreateAPIView):
     queryset = Restaurant.objects \
-        .select_related('menu') \
-        .prefetch_related('menu__manuimage')
+        .prefetch_related('manuimage')
     serializer_class = ResSerializer
 
 
@@ -14,6 +13,5 @@ class ResList(generics.ListCreateAPIView):
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurant.objects \
-        .select_related('menu') \
         .prefetch_related('menu__manuimage')
     serializer_class = ResSerializer
