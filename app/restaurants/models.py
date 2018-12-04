@@ -42,6 +42,12 @@ class Menu(models.Model):
     name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')
     menu_text = models.TextField('메뉴텍스트', blank=True)
 
+    class Meta:
+        # name과 menu_text는 unique 해야한다.
+        unique_together = (
+            ('name', 'menu_text'),
+        )
+
 
 class MenuImage(models.Model):
     post = models.ForeignKey(Menu, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
@@ -49,12 +55,17 @@ class MenuImage(models.Model):
 
 
 class Wannago(models.Model):
-    Restaurant = models.ForeignKey(
+    restaurant = models.ForeignKey(
         Restaurant,
         on_delete=models.CASCADE,
     )
-    User = models.ForeignKey(
+    user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     created_at = models.DateField(auto_now_add=True)
+    class Meta:
+        # 특정 User가 특정 restaurant를 가고싶은 정보는 Unique해야함.
+        unique_together = (
+            ('restaurant', 'user'),
+        )

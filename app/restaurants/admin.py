@@ -6,5 +6,5 @@ from .models import Restaurant, Menu, MenuImage
 
 admin.site.register(Restaurant)
 admin.site.register(Menu)
-amdin.site.register(MenuImage)
+admin.site.register(MenuImage)
 

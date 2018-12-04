@@ -27,6 +27,7 @@ class MenuSerializer(serializers.ModelSerializer):
         )
 
 
+
 class ResSerializer(serializers.ModelSerializer):
     menu = MenuSerializer
     class Meta:
