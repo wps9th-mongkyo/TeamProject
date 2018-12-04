@@ -5,13 +5,16 @@ from .models import Post
 
 
 class PostList(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
+    queryset = Post.objects \
+        .select_related('author', 'restaurant') \
+        .prefetch_related('postimage_posts')
     serializer_class = PostSerializer
 
-    # queryset = Post.objects \
-    #     .select_related('author', 'restaurant', 'postimage') \
+
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
+    queryset = Post.objects \
+        .select_related('author', 'restaurant') \
+        .prefetch_related('postimage_posts')
     serializer_class = PostSerializer

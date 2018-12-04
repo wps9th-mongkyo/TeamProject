@@ -16,6 +16,7 @@ class Restaurant(models.Model):
     holiday = models.CharField('휴일', max_length=20, blank=True)
     website = models.URLField('사이트', max_length=150, blank=True)
     youtube = models.CharField('유튜브', max_length=255, blank=True)
+    menu_text = models.TextField('메뉴텍스트', blank=True)
 
     want_togo = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
@@ -37,24 +38,23 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
-
-class Menu(models.Model):
-    name = models.ForeignKey(Restaurant, on_delete=models.CASCADE, verbose_name='가게이름')
-    menu_text = models.TextField('메뉴텍스트', blank=True)
-
-
 class MenuImage(models.Model):
-    post = models.ForeignKey(Menu, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
+    post = models.ForeignKey(Restaurant, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
     image = models.ImageField(upload_to='menu', verbose_name='메뉴이미지', blank=True)
 
 
 class Wannago(models.Model):
-    Restaurant = models.ForeignKey(
+    restaurant = models.ForeignKey(
         Restaurant,
         on_delete=models.CASCADE,
     )
-    User = models.ForeignKey(
+    user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     created_at = models.DateField(auto_now_add=True)
+    class Meta:
+        # 특정 User가 특정 restaurant를 가고싶은 정보는 Unique해야함.
+        unique_together = (
+            ('restaurant', 'user'),
+        )
