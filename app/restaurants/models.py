@@ -39,7 +39,7 @@ class Restaurant(models.Model):
         return self.name
 
 class MenuImage(models.Model):
-    post = models.ForeignKey(Restaurant, default=None, on_delete=models.CASCADE, verbose_name='메뉴이미지')
+    post = models.ForeignKey(Restaurant, blank=True, on_delete=models.CASCADE, verbose_name='메뉴이미지', related_name='menuimage_res')
     image = models.ImageField(upload_to='menu', verbose_name='메뉴이미지', blank=True)
 
 
