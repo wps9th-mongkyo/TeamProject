@@ -16,6 +16,7 @@ chardet = "*"
 requests = "*"
 pipfile = "*"
 django-cors-headers = "*"
+django-extensions = "*"
 
 [dev-packages]
 ipython = "*"
