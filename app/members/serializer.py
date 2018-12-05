@@ -1,4 +1,6 @@
+from django.contrib.auth import authenticate
 from rest_framework import serializers
+from rest_framework.exceptions import AuthenticationFailed
 
 from .models import User
 
@@ -16,4 +18,3 @@ class UserSerializer(serializers.ModelSerializer):
             'email',
             'introduce',
         )
-
