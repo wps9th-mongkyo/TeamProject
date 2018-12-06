@@ -20,7 +20,6 @@ class ResSerializer(serializers.ModelSerializer):
             'pk',
             'name',
             'address',
-            'address_detail',
             'phone_num',
             'food_type',
             'price_level',
