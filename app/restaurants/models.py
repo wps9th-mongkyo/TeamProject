@@ -16,7 +16,6 @@ class Restaurant(models.Model):
     website = models.URLField('사이트', max_length=150, blank=True)
     youtube = models.CharField('유튜브', max_length=255, blank=True)
     menu_text = models.TextField('메뉴텍스트', blank=True)
-
     want_togo = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         through='Wannago',
@@ -36,6 +35,7 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class MenuImage(models.Model):
     post = models.ForeignKey(Restaurant, blank=True, on_delete=models.CASCADE, verbose_name='메뉴이미지', related_name='menuimage_res')
