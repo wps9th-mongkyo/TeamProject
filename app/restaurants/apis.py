@@ -5,12 +5,6 @@ from .models import Restaurant
 from .serializers import ResSerializer
 
 
-class ResList(generics.ListCreateAPIView):
-    queryset = Restaurant.objects \
-        .prefetch_related('manuimage')
-    serializer_class = ResSerializer
-
-
 class ResSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
