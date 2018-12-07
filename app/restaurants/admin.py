@@ -6,4 +6,3 @@ from .models import Restaurant, MenuImage
 
 admin.site.register(Restaurant)
 admin.site.register(MenuImage)
-
