@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.db.models import Avg
 
 from restaurants.models import Restaurant
 
 
 class Post(models.Model):
+
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -17,7 +19,7 @@ class Post(models.Model):
         on_delete = models.CASCADE,
         verbose_name='음식점',
     )
-    context = models.TextField('리뷰텍스트')
+    content = models.TextField('리뷰텍스트')
 
     rate = models.IntegerField(
         '음식점평가',
@@ -30,6 +32,15 @@ class Post(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        average = Post.objects.all().aggregate(Avg('rate'))
+        a = Restaurant.objects.get(pk=self.restaurant.pk)
+        a.rate_average = average['average__avg']
+        a.save()
+
+
 
 
 class PostImage(models.Model):

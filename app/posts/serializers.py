@@ -25,7 +25,7 @@ class PostSerializer(serializers.ModelSerializer):
             'author',
             'restaurant',
             'rate',
-            'context',
+            'content',
             'postimage_posts',
         )
         read_only_fields = (

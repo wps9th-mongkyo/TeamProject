@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('holiday', models.CharField(blank=True, max_length=20, verbose_name='휴일')),
                 ('website', models.URLField(blank=True, max_length=150, verbose_name='사이트')),
                 ('youtube', models.CharField(blank=True, max_length=255, verbose_name='유튜브')),
-                # ('menu_text', models.TextField(blank=True, verbose_name='메뉴텍스트')),
+                ('menu_text', models.TextField(blank=True, verbose_name='메뉴텍스트')),
                 ('view_num', models.PositiveIntegerField(default=0, verbose_name='뷰수')),
                 ('review_num', models.PositiveIntegerField(default=0, verbose_name='리뷰수')),
                 ('want_num', models.PositiveIntegerField(default=0, verbose_name='가고싶다수')),
