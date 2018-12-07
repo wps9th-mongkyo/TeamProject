@@ -17,7 +17,7 @@ class Post(models.Model):
         on_delete = models.CASCADE,
         verbose_name='음식점',
     )
-    context = models.TextField('리뷰텍스트')
+    content = models.TextField('리뷰텍스트')
 
     rate = models.IntegerField(
         '음식점평가',
@@ -30,6 +30,17 @@ class Post(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        rate_data = Post.objects.value_list('rate', flat=True)
+        rate_sum = 0
+        for i in range(len(rate_data)):
+            rate_sum += rate_data[i]
+        average = rate_sum / len(rate_data)
+        Restaurant.save(rate_average = average)
+
+
 
 
 class PostImage(models.Model):
