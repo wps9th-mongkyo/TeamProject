@@ -26,7 +26,6 @@ urlpatterns_api = ([
 
 
 urlpatterns = [
-    path('', admin.site.urls),
     path('admin/', admin.site.urls),
     path('api/', include(urlpatterns_api))
 ]
