@@ -13,7 +13,8 @@ class MenuImageSerializer(serializers.ModelSerializer):
 
 
 class ResSerializer(serializers.ModelSerializer):
-    menuimage_res = MenuImageSerializer(many=True, read_only=True)
+    menuimage_res = MenuImageSerializer(many=True)
+
     class Meta:
         model = Restaurant
         fields = (
@@ -39,10 +40,8 @@ class ResSerializer(serializers.ModelSerializer):
             'longitude',
             'menu_text',
             'menuimage_res',
-            'rate_average'
+            'rate_average',
         )
         read_only_fields = (
             'menuimage_res',
         )
-
-
