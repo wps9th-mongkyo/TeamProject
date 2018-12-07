@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.db.models import Avg
 
 from restaurants.models import Restaurant
 
 
 class Post(models.Model):
+
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -33,12 +35,10 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        rate_data = Post.objects.value_list('rate', flat=True)
-        rate_sum = 0
-        for i in range(len(rate_data)):
-            rate_sum += rate_data[i]
-        average = rate_sum / len(rate_data)
-        Restaurant.save(rate_average = average)
+        average = Post.objects.all().aggregate(Avg('rate'))
+        a = Restaurant.objects.get(pk=self.restaurant.pk)
+        a.rate_average = average['average__avg']
+        a.save()
 
 
 
