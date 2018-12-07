@@ -1,9 +1,20 @@
 from rest_framework import serializers
 
-from .models import Eatdeal
+from .models import Eatdeal, EatdealImage
+
+
+class EatdealImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EatdealImage
+        fields = (
+            'pk',
+            'image',
+        )
 
 
 class EatdealSerializer(serializers.ModelSerializer):
+    eatdealimages = EatdealImageSerializer(many=True, read_only=True)
+
     class Meta:
         model = Eatdeal
         fields = (
@@ -20,4 +31,8 @@ class EatdealSerializer(serializers.ModelSerializer):
             'how_to_use',
             'refund',
             'inquiry',
+            'eatdealimages',
+        )
+        read_only_fields = (
+            'eatdealimages',
         )

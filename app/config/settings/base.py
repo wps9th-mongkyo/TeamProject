@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'members',
     'restaurants',
     'posts',
+    'eatdeal',
 
     'django.contrib.admin',
     'django.contrib.auth',

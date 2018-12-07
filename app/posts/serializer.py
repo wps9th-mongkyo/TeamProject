@@ -18,6 +18,7 @@ class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer()
     restaurant = ResSerializer()
     postimage_posts = PostImgSerializer(many=True, read_only=True)
+
     class Meta:
         model = Post
         fields = (

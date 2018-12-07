@@ -78,3 +78,14 @@ class Eatdeal(models.Model):
     @inquiry.setter
     def inquiry(self, value):
         self._inquiry = value
+
+
+class EatdealImage(models.Model):
+    eatdeal = models.ForeignKey(
+        Eatdeal,
+        related_name='eatdealimages',
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(upload_to='eatdeal', verbose_name='Eatdeal 이미지')
