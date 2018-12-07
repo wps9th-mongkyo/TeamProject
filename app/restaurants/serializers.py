@@ -39,6 +39,7 @@ class ResSerializer(serializers.ModelSerializer):
             'longitude',
             'menu_text',
             'menuimage_res',
+            'rate_average'
         )
         read_only_fields = (
             'menuimage_res',

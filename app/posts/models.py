@@ -41,8 +41,6 @@ class Post(models.Model):
         a.save()
 
 
-
-
 class PostImage(models.Model):
     post = models.ForeignKey(
         Post,

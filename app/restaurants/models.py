@@ -33,7 +33,7 @@ class Restaurant(models.Model):
     latitude = models.FloatField('위도', blank=True)
     longitude = models.FloatField('경도', blank=True)
 
-    rate_average = models.IntegerField('평점', default=0)
+    rate_average = models.DecimalField('평점', default=0, max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.name
