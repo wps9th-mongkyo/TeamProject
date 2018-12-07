@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from members.serializer import UserSerializer
-from restaurants.serializers import ResSerializer
+from restaurants.serializer import ResSerializer
 from .models import Post, PostImage
 
 

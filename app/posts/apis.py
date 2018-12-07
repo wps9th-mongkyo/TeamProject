@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 
 from .models import Post
-from .serializers import PostSerializer
+from .serializer import PostSerializer
 
 
 class PostSetPagination(PageNumberPagination):

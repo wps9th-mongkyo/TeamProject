@@ -5,7 +5,7 @@ from django.db import models
 class Restaurant(models.Model):
     name = models.CharField('가게이름',max_length=50)
     address = models.CharField('주소',max_length=250)
-    phone_num = models.CharField('전화번호', max_length=20)
+    phone_num = models.CharField('전화번호', max_length=20, blank=True)
     food_type = models.CharField('음식 종류', max_length=20, blank=True)
     price_level = models.CharField('가격대', max_length=50, blank=True)
     parking = models.CharField('주차', max_length=20, blank=True)

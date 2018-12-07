@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 
 from .models import Restaurant
-from .serializers import ResSerializer
+from .serializer import ResSerializer
 
 
 class ResList(generics.ListCreateAPIView):
