@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from posts.serializer import PostImgSerializer
 from .models import Restaurant, MenuImage
 
 
@@ -14,8 +13,8 @@ class MenuImageSerializer(serializers.ModelSerializer):
 
 
 class ResSerializer(serializers.ModelSerializer):
-    menuimage_res = MenuImageSerializer(many=True, read_only=True)
-    postimage_posts = PostImgSerializer(many=True, read_only=True)
+    menuimage_res = MenuImageSerializer(many=True)
+
     class Meta:
         model = Restaurant
         fields = (
@@ -41,13 +40,8 @@ class ResSerializer(serializers.ModelSerializer):
             'longitude',
             'menu_text',
             'menuimage_res',
-            'rate_average'
-            'postimage_posts',
-
+            'rate_average',
         )
         read_only_fields = (
             'menuimage_res',
-            'postimage_posts',
         )
-
-
