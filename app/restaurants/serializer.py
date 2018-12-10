@@ -14,6 +14,7 @@ class MenuImageSerializer(serializers.ModelSerializer):
 
 class ResSerializer(serializers.ModelSerializer):
     menuimage_res = MenuImageSerializer(many=True)
+
     class Meta:
         model = Restaurant
         fields = (
