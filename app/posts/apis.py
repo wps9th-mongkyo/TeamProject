@@ -19,7 +19,6 @@ class PostList(generics.ListCreateAPIView):
     pagination_class = PostSetPagination
 
 
-
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects \
         .select_related('author', 'restaurant') \

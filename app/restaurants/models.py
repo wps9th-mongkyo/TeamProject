@@ -20,7 +20,7 @@ class Restaurant(models.Model):
         settings.AUTH_USER_MODEL,
         through='Wannago',
         symmetrical=False,
-        verbose_name = '가고싶다',
+        verbose_name='가고싶다',
     )
 
     view_num = models.PositiveIntegerField('뷰수', default=0)

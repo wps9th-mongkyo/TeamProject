@@ -12,11 +12,11 @@ class ResSetPagination(PageNumberPagination):
 
 
 class ResList(generics.ListCreateAPIView):
-    queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'postimage_posts',)
+    queryset = Restaurant.objects.all().prefetch_related('menuimage_res')
     serializer_class = ResSerializer
     pagination_class = ResSetPagination
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'postimage_posts',)
+    queryset = Restaurant.objects.all().prefetch_related('menuimage_res')
     serializer_class = ResSerializer
