@@ -22,7 +22,7 @@ urlpatterns_api = ([
     path('restaurants/', include('restaurants.urls')),
     path('members/', include('members.urls')),
     path('posts/', include('posts.urls')),
-    path('eatdeal/', include('eatdeal.urls')),
+    path('eatdeals/', include('eatdeal.urls')),
 ], 'api')
 
 
