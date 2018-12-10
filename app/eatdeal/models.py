@@ -4,9 +4,13 @@ from django.db import models
 
 class Eatdeal(models.Model):
 
-
-    res_name = models.CharField('가게이름',max_length=50)
-    deal_name = models.CharField('주소',max_length=100)
+    restaurant = models.ForeignKey(
+        Restaurant,
+        on_delete=models.CASCADE,
+        verbose_name='음식점',
+    )
+    deal_name = models.CharField('딜이름',max_length=50)
+    sub_name = models.CharField('딜메뉴',max_length=100)
     start_date = models.DateField('시작일자', auto_now_add=True)
     end_date = models.DateField('종료일자', auto_now_add=True)
     base_price = models.PositiveIntegerField('기본가격', default=0)

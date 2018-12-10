@@ -43,13 +43,13 @@ class ResSerializer(serializers.ModelSerializer):
             'modified_at',
             'latitude',
             'longitude',
-            'menu_text',
-            'menuimage_res',
             'rate_average',
-            'post_set',
             'rate_good',
             'rate_normal',
             'rate_bad',
+            'menu_text',
+            'menuimage_res',
+            'post_set',
         )
         read_only_fields = (
             'menuimage_res',

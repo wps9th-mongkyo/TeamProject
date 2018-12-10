@@ -18,8 +18,9 @@ class EatdealSerializer(serializers.ModelSerializer):
     class Meta:
         model = Eatdeal
         fields = (
-            'res_name',
+            'restaurant',
             'deal_name',
+            'sub_name',
             'start_date',
             'end_date',
             'base_price',
