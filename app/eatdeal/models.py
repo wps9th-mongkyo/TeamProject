@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from restaurants.models import Restaurant
+
 
 class Eatdeal(models.Model):
 
