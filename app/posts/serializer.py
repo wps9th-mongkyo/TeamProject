@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from members.serializer import UserSerializer
-from restaurants.serializer import ResSerializer
 from .models import Post, PostImage
 
 
@@ -16,7 +15,7 @@ class PostImgSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer()
-    postimage_posts = PostImgSerializer(many=True, read_only=True)
+    postimage_posts = PostImgSerializer(many=True)
 
     class Meta:
         model = Post

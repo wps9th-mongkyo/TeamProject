@@ -15,7 +15,11 @@ class MenuImageSerializer(serializers.ModelSerializer):
 
 class ResSerializer(serializers.ModelSerializer):
     menuimage_res = MenuImageSerializer(many=True)
-    posts = PostSerializer(many=True)
+    post_set = PostSerializer(many=True)
+    rate_good = serializers.SerializerMethodField()
+    rate_normal = serializers.SerializerMethodField()
+    rate_bad = serializers.SerializerMethodField()
+
     class Meta:
         model = Restaurant
         fields = (
@@ -42,9 +46,21 @@ class ResSerializer(serializers.ModelSerializer):
             'menu_text',
             'menuimage_res',
             'rate_average',
-            'posts',
+            'post_set',
+            'rate_good',
+            'rate_normal',
+            'rate_bad',
         )
         read_only_fields = (
             'menuimage_res',
-            'post',
+            'post_set',
         )
+
+    def get_rate_good(self, obj):
+        return obj.post_set.filter(rate=5).count()
+
+    def get_rate_normal(self, obj):
+        return obj.post_set.filter(rate=3).count()
+
+    def get_rate_bad(self, obj):
+        return obj.post_set.filter(rate=1).count()
