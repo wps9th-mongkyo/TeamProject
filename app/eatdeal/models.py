@@ -85,6 +85,11 @@ class Eatdeal(models.Model):
     def inquiry(self, value):
         self._inquiry = value
 
+    def save(self, *args, **kwargs):
+        self.discount_price = self.base_price * (1 - (self.discount_rate / 100))
+        super().save(*args, **kwargs)
+
+
 
 class EatdealImage(models.Model):
     eatdeal = models.ForeignKey(
