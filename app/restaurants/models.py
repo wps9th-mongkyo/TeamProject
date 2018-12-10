@@ -38,6 +38,11 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = '음식점'
+        verbose_name_plural = f'{verbose_name} 목록'
+        ordering = ['pk']
+
 
 class MenuImage(models.Model):
     post = models.ForeignKey(Restaurant, blank=True, on_delete=models.CASCADE, verbose_name='메뉴이미지', related_name='menuimage_res')
