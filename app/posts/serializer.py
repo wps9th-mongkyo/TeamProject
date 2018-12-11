@@ -14,8 +14,8 @@ class PostImgSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = UserSerializer()
-    postimage_posts = PostImgSerializer(many=True)
+    author = UserSerializer(read_only=True)
+    postimage_posts = PostImgSerializer(many=True, read_only=True)
 
     class Meta:
         model = Post
