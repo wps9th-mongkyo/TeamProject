@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 
+from restaurants.models import Restaurant
 from .models import Post
 from .serializer import PostSerializer
 
@@ -19,7 +20,8 @@ class PostList(generics.ListCreateAPIView):
     pagination_class = PostSetPagination
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        serializer.save(author=self.request.user,
+                        restaurant=Restaurant.objects.get(pk=self.request.data['restaurant']))
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):

@@ -35,7 +35,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        average = Post.objects.all().aggregate(Avg('rate'))
+        average = Post.objects.filter(restaurant=self.restaurant.pk).aggregate(Avg('rate'))
         res_rate = Restaurant.objects.get(pk=self.restaurant.pk)
         res_rate.rate_average = average['rate__avg']
         res_rate.save()
