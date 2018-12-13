@@ -41,7 +41,6 @@ class Post(models.Model):
         res_rate.save()
 
 
-
 class PostImage(models.Model):
     post = models.ForeignKey(
         Post,

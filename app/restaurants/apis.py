@@ -1,8 +1,9 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.pagination import PageNumberPagination
 
-from .models import Restaurant
-from .serializer import ResSerializer
+from restaurants.permissions import IsUser
+from .models import Restaurant, Wannago
+from .serializer import ResSerializer, WannagoSerializer
 
 
 class ResSetPagination(PageNumberPagination):
@@ -20,3 +21,20 @@ class ResList(generics.ListCreateAPIView):
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'post_set')
     serializer_class = ResSerializer
+
+
+class WannagoCreate(generics.CreateAPIView):
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
+    queryset = Wannago.objects.all()
+    serializer_class = WannagoSerializer
+
+
+class WannagoDestroy(generics.DestroyAPIView):
+    permission_classes = (
+        permissions.IsAuthenticated,
+        IsUser,
+    )
+    queryset = Wannago.objects.all()
+    serializer_class = WannagoSerializer

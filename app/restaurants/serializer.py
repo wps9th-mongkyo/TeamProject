@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from posts.serializer import PostSerializer
-from .models import Restaurant, MenuImage
+from .models import Restaurant, MenuImage, Wannago
 
 
 class MenuImageSerializer(serializers.ModelSerializer):
@@ -64,3 +64,20 @@ class ResSerializer(serializers.ModelSerializer):
 
     def get_rate_bad(self, obj):
         return obj.post_set.filter(rate=1).count()
+
+
+class WannagoSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault(),
+    )
+    class Meta:
+        model = Wannago
+        fields = (
+            'pk',
+            'restaurant',
+            'user',
+            'created_at'
+        )
+        read_only_field = (
+            'user',
+        )
