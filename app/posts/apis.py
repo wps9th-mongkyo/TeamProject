@@ -18,6 +18,9 @@ class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     pagination_class = PostSetPagination
 
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects \
