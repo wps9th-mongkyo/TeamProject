@@ -15,7 +15,6 @@ class MenuImageSerializer(serializers.ModelSerializer):
 class ResSerializer(serializers.ModelSerializer):
     menuimage_res = MenuImageSerializer(many=True, read_only=True)
     post_set = PostSerializer(many=True, read_only=True)
-    is_like = serializers.SerializerMethodField()
     rate_good = serializers.SerializerMethodField()
     rate_normal = serializers.SerializerMethodField()
     rate_bad = serializers.SerializerMethodField()
