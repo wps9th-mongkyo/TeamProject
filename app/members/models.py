@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.db import models
+
+
 
 
 class User(AbstractUser):
@@ -22,6 +25,13 @@ class User(AbstractUser):
 
     created_at = models.DateTimeField('회원가입날짜', auto_now_add=True)
     modified_at = models.DateTimeField('수정날짜', auto_now=True)
+
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through='restaurants.Wannago',
+        related_name='wannago_posts',
+        related_query_name='wannago_post',
+    )
 
     class Meta:
         verbose_name = '사용자'

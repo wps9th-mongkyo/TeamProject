@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField
 
 from members.serializer import UserSerializer
 from .models import Post, PostImage

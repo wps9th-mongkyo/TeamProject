@@ -59,8 +59,16 @@ class Wannago(models.Model):
         on_delete=models.CASCADE,
     )
     created_at = models.DateField(auto_now_add=True)
+
     class Meta:
         # 특정 User가 특정 restaurant를 가고싶은 정보는 Unique해야함.
         unique_together = (
             ('restaurant', 'user'),
         )
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        want_num = Wannago.objects.filter(restaurant=self.restaurant.pk).count()
+        Res = Restaurant.objects.get(pk=self.restaurant.pk)
+        Res.want_num = want_num
+        Res.save()

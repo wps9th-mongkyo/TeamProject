@@ -3,7 +3,7 @@ from rest_framework.pagination import PageNumberPagination
 
 from restaurants.permissions import IsUser
 from .models import Restaurant, Wannago
-from .serializer import ResSerializer, WannagoSerializer
+from .serializers import ResSerializer, WannagoSerializer
 
 
 class ResSetPagination(PageNumberPagination):
@@ -38,3 +38,4 @@ class WannagoDestroy(generics.DestroyAPIView):
     )
     queryset = Wannago.objects.all()
     serializer_class = WannagoSerializer
+

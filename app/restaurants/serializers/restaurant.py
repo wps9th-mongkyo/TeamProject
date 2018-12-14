@@ -1,7 +1,6 @@
 from rest_framework import serializers
-
+from ..models import MenuImage, Restaurant
 from posts.serializer import PostSerializer
-from .models import Restaurant, MenuImage, Wannago
 
 
 class MenuImageSerializer(serializers.ModelSerializer):
@@ -16,9 +15,11 @@ class MenuImageSerializer(serializers.ModelSerializer):
 class ResSerializer(serializers.ModelSerializer):
     menuimage_res = MenuImageSerializer(many=True, read_only=True)
     post_set = PostSerializer(many=True, read_only=True)
+    is_like = serializers.SerializerMethodField()
     rate_good = serializers.SerializerMethodField()
     rate_normal = serializers.SerializerMethodField()
     rate_bad = serializers.SerializerMethodField()
+
 
     class Meta:
         model = Restaurant
@@ -55,6 +56,9 @@ class ResSerializer(serializers.ModelSerializer):
             'menuimage_res',
             'post_set',
         )
+    # def get_is_like(self, obj):
+    #     user = self.content['request'].user
+    #     return obj.wannago_set.filter(user=user)
 
     def get_rate_good(self, obj):
         return obj.post_set.filter(rate=5).count()
@@ -65,19 +69,3 @@ class ResSerializer(serializers.ModelSerializer):
     def get_rate_bad(self, obj):
         return obj.post_set.filter(rate=1).count()
 
-
-class WannagoSerializer(serializers.ModelSerializer):
-    user = serializers.HiddenField(
-        default=serializers.CurrentUserDefault(),
-    )
-    class Meta:
-        model = Wannago
-        fields = (
-            'pk',
-            'restaurant',
-            'user',
-            'created_at'
-        )
-        read_only_field = (
-            'user',
-        )
