@@ -17,6 +17,7 @@ requests = "*"
 pipfile = "*"
 django-cors-headers = "*"
 django-extensions = "*"
+django-filter = "*"
 
 [dev-packages]
 ipython = "*"
