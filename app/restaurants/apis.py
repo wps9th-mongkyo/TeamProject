@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from rest_framework.pagination import PageNumberPagination
 
 from restaurants.permissions import IsUser
@@ -16,6 +16,8 @@ class ResList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'post_set')
     serializer_class = ResSerializer
     pagination_class = ResSetPagination
+    filter_backends = (filters.OrderingFilter,)
+    ordering_fields = ('name',)
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
