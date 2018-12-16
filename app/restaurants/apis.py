@@ -16,8 +16,9 @@ class ResList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'post_set')
     serializer_class = ResSerializer
     pagination_class = ResSetPagination
-    filter_backends = (filters.OrderingFilter,)
+    filter_backends = (filters.OrderingFilter, filters.SearchFilter,)
     ordering_fields = '__all__'
+    search_fields = ('name', 'address', 'food_type')
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
