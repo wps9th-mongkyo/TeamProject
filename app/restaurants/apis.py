@@ -17,7 +17,7 @@ class ResList(generics.ListCreateAPIView):
     serializer_class = ResSerializer
     pagination_class = ResSetPagination
     filter_backends = (filters.OrderingFilter,)
-    ordering_fields = ('name',)
+    ordering_fields = '__all__'
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
