@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-from rest_framework import serializers
-=======
 from rest_framework import serializers, pagination
 from rest_framework.fields import SerializerMethodField
->>>>>>> origin/jeeho1217-1
 
 from members.serializer import UserSerializer
 from .models import Post, PostImage
