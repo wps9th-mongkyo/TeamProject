@@ -18,6 +18,7 @@ class EatdealSerializer(serializers.ModelSerializer):
     class Meta:
         model = Eatdeal
         fields = (
+            'pk',
             'restaurant',
             'deal_name',
             'sub_name',
