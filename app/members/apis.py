@@ -47,6 +47,7 @@ class FacebookAuthTokenView(APIView):
         }
         return Response(data)
 
+
 class ProfileView(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 

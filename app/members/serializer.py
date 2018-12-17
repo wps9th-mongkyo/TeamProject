@@ -24,7 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
             'wannago_set',
         )
     def get_fullname(self,obj):
-        return User.last_name + User.first_name
+        return obj.last_name + obj.first_name
 
 
 class AuthTokenSerializerr(serializers.Serializer):
