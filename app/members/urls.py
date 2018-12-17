@@ -9,4 +9,5 @@ urlpatterns = [
     path('list/<int:pk>/', apis.UserDetail.as_view()),
     path('auth-token/', apis.AuthTokenView.as_view()),
     path('profiles/', apis.ProfileView.as_view()),
+    path('auth-token/facebook/', apis.FacebookAuthTokenView.as_view()),
 ]
