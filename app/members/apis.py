@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotAuthenticated, AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from members.models import User
 from .backends import FacebookBackend
 from .serializer import UserSerializer
 
@@ -82,3 +83,6 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
             if not self.request.user.is_authenticated:
                 raise NotAuthenticated()
             return self.request.user
+
+        user = super().get_object()
+        return user

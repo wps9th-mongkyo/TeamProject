@@ -10,6 +10,7 @@ from restaurants.serializers.wannago import WannagoSerializer
 class UserSerializer(serializers.ModelSerializer):
     wannago_set = WannagoSerializer(many=True, read_only=True)
     fullname = serializers.SerializerMethodField()
+
     class Meta:
         model = User
 
