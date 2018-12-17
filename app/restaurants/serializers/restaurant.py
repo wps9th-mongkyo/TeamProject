@@ -58,6 +58,7 @@ class ResSerializer(serializers.ModelSerializer):
     #     user = self.content['request'].user
     #     return obj.wannago_set.filter(user=user)
 
+<<<<<<< HEAD:app/restaurants/serializers/restaurant.py
     def get_rate_good(self, obj):
         return obj.post_set.filter(rate=5).count()
 
@@ -66,3 +67,21 @@ class ResSerializer(serializers.ModelSerializer):
 
     def get_rate_bad(self, obj):
         return obj.post_set.filter(rate=1).count()
+=======
+class WannagoSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault(),
+    )
+
+    class Meta:
+        model = Wannago
+        fields = (
+            'pk',
+            'restaurant',
+            'user',
+            'created_at'
+        )
+        read_only_field = (
+            'user',
+        )
+>>>>>>> origin/jeeho1217-1:app/restaurants/serializer.py

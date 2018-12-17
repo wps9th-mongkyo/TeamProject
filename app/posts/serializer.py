@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 from rest_framework import serializers
+=======
+from rest_framework import serializers, pagination
+from rest_framework.fields import SerializerMethodField
+>>>>>>> origin/jeeho1217-1
 
 from members.serializer import UserSerializer
 from .models import Post, PostImage
@@ -26,9 +31,19 @@ class PostSerializer(serializers.ModelSerializer):
             'rate',
             'content',
             'postimage_posts',
+            'created_at',
+            'modified_at',
         )
         read_only_fields = (
             'author',
+<<<<<<< HEAD
             'restaurant',
             'postimage_posts',
         )
+=======
+            'postimage_posts',\
+            'created_at',
+            'modified_at',
+        )
+
+>>>>>>> origin/jeeho1217-1
