@@ -16,6 +16,8 @@ class FacebookBackend:
             'access_token': access_token,
             'fields': ','.join([
                 'id',
+                'first_name',
+                'last_name',
                 'picture.type(large)',
             ]),
         }
@@ -24,9 +26,10 @@ class FacebookBackend:
         data = response.json()
 
         facebook_id = data['id']
+        first_name = data['first_name']
+        last_name = data['last_name']
         url_img_profile = data['picture']['data']['url']
 
-        # HTTP GET요청의 응답을 받아옴
         img_response = requests.get(url_img_profile)
         img_data = img_response.content
 
@@ -36,10 +39,15 @@ class FacebookBackend:
 
         try:
             user = User.objects.get(username=facebook_id)
+            user.last_name = last_name
+            user.first_name = first_name
+            user.save()
 
         except User.DoesNotExist:
             user = User.objects.create_user(
                 username=facebook_id,
+                first_name=first_name,
+                last_name=last_name,
                 img_profile=f,
             )
 

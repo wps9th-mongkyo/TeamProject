@@ -6,16 +6,20 @@ from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField()
     class Meta:
         model = User
         fields = (
             'pk',
             'username',
+            'name',
             'img_profile',
             'phone',
             'email',
             'introduce',
         )
+    def get_name(self,obj):
+        return
 
 class AuthTokenSerializerr(serializers.Serializer):
     username = serializers.CharField()
