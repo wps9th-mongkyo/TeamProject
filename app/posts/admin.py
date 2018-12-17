@@ -10,5 +10,9 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['-id', 'rate', 'created_at']
 
 
+class PostImageAdmin(admin.ModelAdmin):
+    list_display = ['id', 'post']
+
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(PostImage)
+admin.site.register(PostImage, PostImageAdmin)

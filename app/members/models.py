@@ -4,8 +4,6 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.db import models
 
 
-
-
 class User(AbstractUser):
     img_profile = models.ImageField('프로필 이미지', upload_to='user', blank=True)
     phone = models.PositiveIntegerField('전화번호', blank=True, null=True)

@@ -19,7 +19,6 @@ class ResSerializer(serializers.ModelSerializer):
     rate_normal = serializers.SerializerMethodField()
     rate_bad = serializers.SerializerMethodField()
 
-
     class Meta:
         model = Restaurant
         fields = (
@@ -67,4 +66,3 @@ class ResSerializer(serializers.ModelSerializer):
 
     def get_rate_bad(self, obj):
         return obj.post_set.filter(rate=1).count()
-
