@@ -21,7 +21,9 @@ class ResList(generics.ListCreateAPIView):
     pagination_class = ResSetPagination
     filter_backends = (filters.OrderingFilter, filters.SearchFilter,)
     ordering_fields = '__all__'
-    search_fields = ('name', 'address', 'food_type')
+    search_fields = (
+        'name', 'address', 'food_type', 'phone_num', 'price_level', 'parking', 'Business_hour', 'break_time', 'last_order', 'holiday',
+    )
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
