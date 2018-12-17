@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.exceptions import AuthenticationFailed
@@ -24,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
     def get_fullname(self,obj):
         return User.last_name + User.first_name
+
 
 class AuthTokenSerializerr(serializers.Serializer):
     username = serializers.CharField()
