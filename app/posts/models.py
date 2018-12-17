@@ -39,11 +39,11 @@ class Post(models.Model):
         res_rate = Restaurant.objects.get(pk=self.restaurant.pk)
         res_rate.rate_average = average['rate__avg']
         if self.rate == 5:
-            Restaurant.rate_good = res_post.filter(rate=5).count()
+            res_rate.rate_good = res_post.filter(rate=5).count()
         if self.rate == 3:
-            Restaurant.rate_good = res_post.filter(rate=3).count()
+            res_rate.rate_normal = res_post.filter(rate=3).count()
         if self.rate == 1:
-            Restaurant.rate_good = res_post.filter(rate=1).count()
+            res_rate.rate_bad = res_post.filter(rate=1).count()
         res_rate.save()
 
 
