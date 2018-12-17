@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import MenuImage, Restaurant
+from ..models import MenuImage, Restaurant, Wannago
 from posts.serializer import PostSerializer
 
 
