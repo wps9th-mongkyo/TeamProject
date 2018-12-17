@@ -7,7 +7,7 @@ from django.db import models
 class User(AbstractUser):
     img_profile = models.ImageField('프로필 이미지', upload_to='user', blank=True)
     phone = models.PositiveIntegerField('전화번호', blank=True, null=True)
-    email = models.EmailField('이메일', max_length=50)
+    email = models.EmailField('이메일', max_length=50, blank=True)
     introduce = models.TextField('소개', blank=True)
 
     following = models.ManyToManyField(
