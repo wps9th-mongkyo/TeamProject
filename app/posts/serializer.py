@@ -36,14 +36,8 @@ class PostSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             'author',
-<<<<<<< HEAD
-            'restaurant',
-            'postimage_posts',
-        )
-=======
             'postimage_posts',\
             'created_at',
             'modified_at',
         )
 
->>>>>>> origin/jeeho1217-1
