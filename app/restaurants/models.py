@@ -34,6 +34,9 @@ class Restaurant(models.Model):
     longitude = models.FloatField('경도', blank=True)
 
     rate_average = models.DecimalField('평점', default=0, max_digits=10, decimal_places=2)
+    rate_good = models.IntegerField('맛있다', default=0)
+    rate_normal = models.IntegerField('괜찮다', default=0)
+    rate_bad = models.IntegerField('별로', default=0)
 
     def __str__(self):
         return self.name

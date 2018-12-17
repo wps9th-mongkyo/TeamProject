@@ -56,20 +56,11 @@ class ResSerializer(serializers.ModelSerializer):
             'post_set',
         )
 
-    def get_rate_good(self, obj):
-        return obj.post_set.filter(rate=5).count()
-
-    def get_rate_normal(self, obj):
-        return obj.post_set.filter(rate=3).count()
-
-    def get_rate_bad(self, obj):
-        return obj.post_set.filter(rate=1).count()
-
-
 class WannagoSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
     )
+
     class Meta:
         model = Wannago
         fields = (

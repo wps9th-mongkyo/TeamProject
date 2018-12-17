@@ -1,15 +1,16 @@
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 
-from restaurants.models import Restaurant
-from .models import Post
-from .serializer import PostSerializer
+from .models import Post, PostImage
+from .serializer import PostSerializer, PostImgSerializer
 
 
 class PostSetPagination(PageNumberPagination):
     page_size = 5
     page_size_query_param = 'page_size'
     max_page_size = 1000
+
+
 
 
 class PostList(generics.ListCreateAPIView):
@@ -20,8 +21,7 @@ class PostList(generics.ListCreateAPIView):
     pagination_class = PostSetPagination
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user,
-                        restaurant=Restaurant.objects.get(pk=self.request.data['restaurant']))
+        serializer.save(author=self.request.user)
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -29,3 +29,13 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         .select_related('author', 'restaurant') \
         .prefetch_related('postimage_posts')
     serializer_class = PostSerializer
+
+
+class PostImageListCreate(generics.ListCreateAPIView):
+    queryset = PostImage.objects.all()
+    serializer_class = PostImgSerializer
+
+
+class PostImageRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = PostImage.objects.all()
+    serializer_class = PostImgSerializer
