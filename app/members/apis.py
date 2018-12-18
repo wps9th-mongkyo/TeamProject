@@ -20,7 +20,7 @@ class AuthTokenView(APIView):
             token, __ = Token.objects.get_or_create(user=user)
             data = {
                 'token': token.key,
-                'user': user
+                'user': UserSerializer(user).data,
             }
             return Response(data)
         raise AuthenticationFailed()
@@ -36,10 +36,10 @@ class FacebookAuthTokenView(APIView):
     def post(self, request):
         facebook_user_id = request.data.get('facebook_user_id')
         access_token = request.data.get('access_token')
-        if User.object.filter(username=facebook_user_id).exists():
-            user = User.objects.get(username=facebook_user_id)
-        else:
-            user = FacebookBackend.get_user_by_access_token(access_token)
+        # if User.objects.filter(username=facebook_user_id).exists():
+        #     user = User.objects.get(username=facebook_user_id)
+        # else:
+        user = authenticate(access_token)
         token = Token.objects.get_or_create(user=user)[0]
         data = {
             'token': token.key,

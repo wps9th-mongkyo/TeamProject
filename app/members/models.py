@@ -36,6 +36,11 @@ class User(AbstractUser):
             return self.img_profile.url
         return static('images/dummy-user.jpg')
 
+    @property
+    def full_name(self):
+        return self.first_name + self.last_name
+
+
 
 class Follow(models.Model):
     from_user = models.ForeignKey(
