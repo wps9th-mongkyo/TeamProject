@@ -11,12 +11,10 @@ class PostSetPagination(PageNumberPagination):
     max_page_size = 1000
 
 
-
-
 class PostList(generics.ListCreateAPIView):
     queryset = Post.objects \
         .select_related('author') \
-        .prefetch_related('postimage_posts','author__wannago_set')
+        .prefetch_related('postimage_posts', 'author__wannago_set')
     serializer_class = PostSerializer
     pagination_class = PostSetPagination
 
