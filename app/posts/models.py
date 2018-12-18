@@ -46,9 +46,6 @@ class Post(models.Model):
             res_rate.rate_bad = res_post.filter(rate=1).count()
         res_rate.save()
 
-    def __str__(self):
-        return self.restaurant.name
-
 
 class PostImage(models.Model):
     post = models.ForeignKey(
@@ -59,4 +56,3 @@ class PostImage(models.Model):
         on_delete=models.CASCADE,
     )
     image = models.ImageField(upload_to='post', verbose_name='이미지')
-
