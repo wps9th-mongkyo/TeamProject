@@ -38,6 +38,11 @@ STATIC_ROOT = os.path.join(ROOT_DIR, '.static')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'members.backends.FacebookBackend',
+]
+
 
 # Django_rest_framework
 REST_FRAMEWORK = {

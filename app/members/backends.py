@@ -1,7 +1,7 @@
 import imghdr
 
+import requests
 from django.contrib.auth import get_user_model
-from django.contrib.sites import requests
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 User = get_user_model()
@@ -11,7 +11,7 @@ class FacebookBackend:
     api_base = 'https://graph.facebook.com/v3.2'
     api_me = f'{api_base}/me'
 
-    def get_user_by_access_token(self, access_token):
+    def authenticate(self, access_token):
         params = {
             'access_token': access_token,
             'fields': ','.join([
@@ -24,7 +24,7 @@ class FacebookBackend:
 
         response = requests.get(self.api_me, params)
         data = response.json()
-
+        print(data)
         facebook_id = data['id']
         first_name = data['first_name']
         last_name = data['last_name']
@@ -52,3 +52,9 @@ class FacebookBackend:
             )
 
         return user
+
+    def get_user(self, user_id):
+        try:
+            return User.objects.get(pk=user_id)
+        except User.DoesNotExist:
+            return None

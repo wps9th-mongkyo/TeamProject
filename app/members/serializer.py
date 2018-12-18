@@ -8,8 +8,8 @@ from restaurants.serializers.wannago import WannagoSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     wannago_set = WannagoSerializer(many=True, read_only=True)
-    fullname = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -17,15 +17,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'pk',
             'username',
-            'fullname',
+            'full_name',
             'img_profile',
             'phone',
             'email',
             'introduce',
             'wannago_set',
         )
-    def get_fullname(self,obj):
-        return obj.last_name + obj.first_name
 
 
 class AuthTokenSerializerr(serializers.Serializer):
