@@ -22,7 +22,6 @@ class PostSerializer(serializers.ModelSerializer):
         fields = (
             'pk',
             'author',
-            'restaurant',
             'rate',
             'content',
             'postimage_posts',
@@ -31,8 +30,6 @@ class PostSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             'author',
-            'postimage_posts',\
-            'created_at',
-            'modified_at',
+            'postimage_posts',
         )
 

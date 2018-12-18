@@ -14,10 +14,10 @@ class ResSetPagination(PageNumberPagination):
 
 class ResList(generics.ListCreateAPIView):
     queryset = Restaurant.objects.prefetch_related('menuimage_res',
-                                                   'wannago_set',
                                                     'post_set',
                                                     'post_set__postimage_posts',
-                                                    'post_set__author')
+                                                    'post_set__author',
+                                                   'post_set__author__wannago_set')
     serializer_class = ResSerializer
     pagination_class = ResSetPagination
     filter_backends = (filters.OrderingFilter, filters.SearchFilter,)

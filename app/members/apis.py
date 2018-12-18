@@ -47,7 +47,7 @@ class ProfileView(APIView):
 
 
 class UserList(generics.ListCreateAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.prefetch_related('wannago_set')
     serializer_class = UserSerializer
 
 
