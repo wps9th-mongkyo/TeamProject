@@ -37,7 +37,7 @@ class FacebookAuthTokenView(APIView):
     def post(self, request):
         facebook_user_id = request.data.get('facebook_user_id')
         access_token = request.data.get('access_token')
-        if User.object.filter(username=facebook_user_id).exists():
+        if User.objects.filter(username=facebook_user_id).exists():
             user = User.objects.get(username=facebook_user_id)
         else:
             user = FacebookBackend.get_user_by_access_token(access_token)
