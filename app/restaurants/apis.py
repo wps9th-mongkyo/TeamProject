@@ -25,11 +25,17 @@ class ResList(generics.ListCreateAPIView):
     search_fields = (
         'name', 'address', 'food_type', 'phone_num', 'price_level', 'parking', 'Business_hour', 'break_time', 'last_order', 'holiday',
     )
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly
+    )
 
 
 class ResDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Restaurant.objects.all().prefetch_related('menuimage_res', 'post_set')
     serializer_class = ResSerializer
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly
+    )
 
 
 class WannagoCreate(generics.CreateAPIView):
