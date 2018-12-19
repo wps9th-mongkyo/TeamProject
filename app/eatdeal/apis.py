@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from .models import Eatdeal
 from .serializer import EatdealSerializer
@@ -14,7 +14,7 @@ class EatdealList(generics.ListCreateAPIView):
 
 class EatdealDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Eatdeal.objects.all().prefetch_related('eatdealimages')
-    serializer_class = EatdealSerializer \
+    serializer_class = EatdealSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly
     )
