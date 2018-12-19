@@ -19,7 +19,10 @@ SECRET_ROOT = os.path.join(ROOT_DIR, '.secrets')
 
 # Media
 MEDIA_URL = '/media/'
+
+# S3를 쓰면 MEDIA_ROOT와 나머지 설정들은 S3 DjangoStorage가 해준다.
 MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
