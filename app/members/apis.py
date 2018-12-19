@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotAuthenticated, AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from members.permissions import IsOwnerOrReadOnly
 from .serializer import UserSerializer
 
 User = get_user_model()
@@ -40,7 +41,9 @@ class FacebookAuthTokenView(APIView):
 
 
 class ProfileView(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (
+        permissions.IsAuthenticated
+    )
 
     def get(self, request):
         return Response(UserSerializer(request.user).data)
@@ -49,11 +52,17 @@ class ProfileView(APIView):
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.prefetch_related('wannago_set')
     serializer_class = UserSerializer
-
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+    )
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly,
+    )
 
     def get_object(self):
         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
