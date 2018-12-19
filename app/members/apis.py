@@ -52,17 +52,17 @@ class ProfileView(APIView):
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.prefetch_related('wannago_set')
     serializer_class = UserSerializer
-    permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly,
-    )
+    # permission_classes = (
+    #     permissions.IsAuthenticatedOrReadOnly,
+    # )
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly,
-        IsOwnerOrReadOnly,
-    )
+    # permission_classes = (
+    #     permissions.IsAuthenticatedOrReadOnly,
+    #     IsOwnerOrReadOnly,
+    # )
 
     def get_object(self):
         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field

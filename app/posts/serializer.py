@@ -1,4 +1,4 @@
-from rest_framework import serializers, pagination
+from rest_framework import serializers
 
 from members.serializer import UserSerializer
 from .models import Post, PostImage
@@ -22,6 +22,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = (
             'pk',
             'author',
+            'restaurant',
             'rate',
             'content',
             'postimage_posts',
