@@ -7,6 +7,7 @@ class WannagoSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
     )
+
     class Meta:
         model = Wannago
         fields = (
