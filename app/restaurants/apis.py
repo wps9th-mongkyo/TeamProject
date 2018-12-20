@@ -53,9 +53,6 @@ class WannagoDestroy(generics.DestroyAPIView):
         IsUser,
     )
     queryset = Wannago.objects.all()
-    def get_queryset(self):
-        re_pk=self.kwargs['pk']
-        return Wannago.objects.filter(Restaurant__pk=re_pk)
     serializer_class = WannagoSerializer
 
 
@@ -76,11 +73,11 @@ class IosWannagoDestroy(generics.DestroyAPIView):
     )
 
     def get_queryset(self):
-        self.lookup_field = 'restaurant_pk'
+        self.lookup_field = 'pk'
         return super().get_queryset()
 
     def get_object(self):
-        re_pk = self.kwargs['restaurant_pk']
+        re_pk = self.kwargs['pk']
         query = Wannago.objects.get(restaurant__pk=re_pk)
         return query
 
@@ -94,11 +91,11 @@ class IosCheckInDestroy(generics.DestroyAPIView):
     )
 
     def get_queryset(self):
-        self.lookup_field = 'checkin_pk'
+        self.lookup_field = 'pk'
         return super().get_queryset()
 
     def get_object(self):
-        re_pk = self.kwargs['checkin_pk']
+        re_pk = self.kwargs['pk']
         query = CheckIn.objects.get(restaurant__pk=re_pk)
         return query
 
