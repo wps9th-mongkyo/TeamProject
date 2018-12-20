@@ -85,3 +85,21 @@ class IosWannagoDestroy(generics.DestroyAPIView):
         return query
 
     serializer_class = WannagoSerializer
+
+
+class IosCheckInDestroy(generics.DestroyAPIView):
+    permission_classes = (
+        permissions.IsAuthenticated,
+        IsUser,
+    )
+
+    def get_queryset(self):
+        self.lookup_field = 'restaurant_pk'
+        return super().get_queryset()
+
+    def get_object(self):
+        re_pk = self.kwargs['restaurant_pk']
+        query = CheckIn.objects.get(restaurant__pk=re_pk)
+        return query
+
+    serializer_class = CheckInSerializer
