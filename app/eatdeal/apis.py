@@ -7,17 +7,17 @@ from .serializer import EatdealSerializer, EatdealImageSerializer
 class EatdealList(generics.ListCreateAPIView):
     queryset = Eatdeal.objects.all().prefetch_related('eatdealimages')
     serializer_class = EatdealSerializer
-    # permission_classes = (
-    #     permissions.IsAuthenticatedOrReadOnly
-    # )
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+    )
 
 
 class EatdealDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Eatdeal.objects.all().prefetch_related('eatdealimages')
     serializer_class = EatdealSerializer
-    # permission_classes = (
-    #     permissions.IsAuthenticatedOrReadOnly
-    # )
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+    )
 
 
 class EatdealImageList(generics.ListCreateAPIView):
@@ -28,3 +28,6 @@ class EatdealImageList(generics.ListCreateAPIView):
 class EatdealImageDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Eatdeal.objects.all().prefetch_related('eatdealimages')
     serializer_class = EatdealImageSerializer
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+    )
