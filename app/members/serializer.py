@@ -3,6 +3,7 @@ from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.exceptions import AuthenticationFailed
 
+from restaurants.serializers.checkin import CheckInSerializer
 from .models import User
 from restaurants.serializers.wannago import WannagoSerializer
 
@@ -10,6 +11,7 @@ from restaurants.serializers.wannago import WannagoSerializer
 class UserSerializer(serializers.ModelSerializer):
 
     wannago_set = WannagoSerializer(many=True, read_only=True)
+    checkin_set = CheckInSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
@@ -23,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
             'email',
             'introduce',
             'wannago_set',
+            'checkin_set',
         )
 
 
