@@ -2,7 +2,8 @@ from rest_framework import generics, permissions, filters
 from rest_framework.pagination import PageNumberPagination
 
 from restaurants.permissions import IsUser
-from .models import Restaurant, Wannago
+from .serializers.checkin import CheckInSerializer
+from .models import Restaurant, Wannago, CheckIn
 from .serializers import ResSerializer, WannagoSerializer
 
 
@@ -54,3 +55,12 @@ class WannagoDestroy(generics.DestroyAPIView):
     queryset = Wannago.objects.all()
     serializer_class = WannagoSerializer
 
+
+class CheckInCreate(generics.CreateAPIView):
+    queryset = CheckIn.objects.all()
+    serializer_class = CheckInSerializer
+
+
+class CheckInDestroy(generics.DestroyAPIView):
+    queryset = CheckIn.objects.all()
+    serializer_class = CheckInSerializer

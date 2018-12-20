@@ -91,7 +91,6 @@ class Eatdeal(models.Model):
         super().save(*args, **kwargs)
 
 
-
 class EatdealImage(models.Model):
     eatdeal = models.ForeignKey(
         Eatdeal,
