@@ -7,6 +7,7 @@ class CheckInSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),
     )
+
     class Meta:
         model = CheckIn
         fields = (
