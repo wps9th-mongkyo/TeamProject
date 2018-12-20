@@ -27,6 +27,7 @@ class EatdealSerializer(serializers.ModelSerializer):
             'base_price',
             'discount_rate',
             'discount_price',
+            'description',
             'introduce_res',
             'introduce_menu',
             'caution',
