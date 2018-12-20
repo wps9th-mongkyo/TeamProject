@@ -9,6 +9,7 @@ class PostImgSerializer(serializers.ModelSerializer):
         model = PostImage
         fields = (
             'pk',
+            'post',
             'image',
         )
 

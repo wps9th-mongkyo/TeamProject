@@ -18,6 +18,7 @@ class Eatdeal(models.Model):
     base_price = models.PositiveIntegerField('기본가격', default=0)
     discount_rate = models.PositiveIntegerField('할인율', default=0)
     discount_price = models.PositiveIntegerField('할인가격', default=0)
+    description = models.TextField('설명', max_length=225)
     introduce_res = models.TextField('식당소개', max_length=255)
     introduce_menu = models.TextField('메뉴소개', max_length=255)
     _caution = models.TextField('유의사항', max_length=255, blank=True)
