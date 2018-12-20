@@ -78,7 +78,7 @@ class IosWannagoDestroy(generics.DestroyAPIView):
 
     def get_object(self):
         re_pk = self.kwargs['pk']
-        query = Wannago.objects.get(restaurant__pk=re_pk)
+        query = Wannago.objects.filter(restaurant__pk=re_pk)
         return query
 
     serializer_class = WannagoSerializer
