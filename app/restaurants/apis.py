@@ -69,7 +69,7 @@ class CheckInDestroy(generics.DestroyAPIView):
     serializer_class = CheckInSerializer
 
 
-class WannagDestroy(generics.DestroyAPIView):
+class IosWannagoDestroy(generics.DestroyAPIView):
     permission_classes = (
         permissions.IsAuthenticated,
         IsUser,
