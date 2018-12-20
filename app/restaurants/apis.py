@@ -94,11 +94,11 @@ class IosCheckInDestroy(generics.DestroyAPIView):
     )
 
     def get_queryset(self):
-        self.lookup_field = 'restaurant_pk'
+        self.lookup_field = 'checkin_pk'
         return super().get_queryset()
 
     def get_object(self):
-        re_pk = self.kwargs['restaurant_pk']
+        re_pk = self.kwargs['checkin_pk']
         query = CheckIn.objects.get(restaurant__pk=re_pk)
         return query
 
