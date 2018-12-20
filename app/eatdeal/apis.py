@@ -23,6 +23,9 @@ class EatdealDetail(generics.RetrieveUpdateDestroyAPIView):
 class EatdealImageList(generics.ListCreateAPIView):
     queryset = Eatdeal.objects.all().prefetch_related('eatdealimages')
     serializer_class = EatdealImageSerializer
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+    )
 
 
 class EatdealImageDetail(generics.RetrieveUpdateDestroyAPIView):
